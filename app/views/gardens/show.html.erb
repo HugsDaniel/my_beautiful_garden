@@ -2,10 +2,24 @@
   <div class="container">
     <h1><%= @garden.name %></h1>
     <p><%= @garden.location %></p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <%= link_to "Add a plant", new_garden_plant_path(@garden), class: "btn btn-success" %>
+  </div>
+</div>
+
+<!-- AFFICHER MES PLANTES -->
+
+<br>
+
+<div class="container">
+  <div class="cards">
+    <% @garden.plants.each do |plant| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= plant.photo_url %>)">
+	<%= plant.name %>
+	<%= link_to "Delete", plant_path(plant), method: :delete, class: "btn btn-small btn-danger" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
 
-<%= link_to 'Edit', edit_garden_path(@garden) %> |
-<%= link_to 'Back', gardens_path %>
+<br>
