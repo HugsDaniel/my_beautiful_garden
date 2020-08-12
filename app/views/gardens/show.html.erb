@@ -1,19 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @garden.banner_url %>);">
+  <div class="container">
+    <h1><%= @garden.name %></h1>
+    <p><%= @garden.location %></p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @garden.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @garden.location %>
-</p>
-
-<p>
-  <strong>Banner url:</strong>
-  <%= @garden.banner_url %>
-</p>
 
 <%= link_to 'Edit', edit_garden_path(@garden) %> |
 <%= link_to 'Back', gardens_path %>
