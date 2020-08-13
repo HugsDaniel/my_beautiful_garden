@@ -9,6 +9,7 @@
 
 Garden.destroy_all if Rails.env.development?
 Plant.destroy_all if Rails.env.development?
+Tag.destroy_all if Rails.env.development?
 
 magic = Garden.create!(
   name: "Magic Garden",
@@ -36,3 +37,8 @@ Plant.create!(
   garden: magic
 )
 
+tag_attributes = ["Cactus", "Cannabinoide", "Psychédélique", "Afrodisiaque"]
+
+tag_attributes.each do |attrib|
+  Tag.create!(name: attrib)
+end
